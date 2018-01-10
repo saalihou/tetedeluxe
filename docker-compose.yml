@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: passer
+    volumes:
+      - ./db:/var/lib/mysql
+  php:
+    build: ./
+    ports:
+      - 3000:80
+    volumes:
+      - ./:/var/www/html
+    links:
+      - mysql
