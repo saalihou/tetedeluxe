@@ -10,14 +10,27 @@
 
 </head>
 <body>
-  <ul class="nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Accueil</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Connexion</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Catalogue</a>
-    </li>
-  </ul>
+  <nav class="navbar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="<?=site_url('/')?>">Accueil</a>
+      </li>
+      <?php if (!$this->session->loggedIn): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="<?=site_url('/authentication')?>">Connexion</a>
+      </li>
+      <?php endif; ?>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Catalogue</a>
+      </li>
+    </ul>
+    <?php if ($this->session->loggedIn): ?>
+      <span class="navbar-text">
+        <?php echo $this->session->email; ?>
+        <a href="<?=site_url('authentication/logout')?>" class="btn btn-primary">
+          Déconnexion
+        </a>
+      </span>
+    <?php endif; ?>
+  </nav>
+  
