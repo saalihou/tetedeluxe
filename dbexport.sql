@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE products
 (
- id       INT NOT NULL PRIMARY KEY,
+ id       INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
  category VARCHAR(50) NOT NULL ,
  name     VARCHAR(200) NOT NULL ,
  price    VARCHAR(50) NOT NULL
@@ -13,7 +13,7 @@ CREATE TABLE products
 
 CREATE TABLE users
 (
- id          INT NOT NULL PRIMARY KEY,
+ id          INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
  email       VARCHAR(50) NOT NULL ,
  password    VARCHAR(1000) NOT NULL ,
  phoneNumber VARCHAR(20) NOT NULL 
@@ -21,7 +21,7 @@ CREATE TABLE users
 
 CREATE TABLE commands
 (
- id         INT NOT NULL PRIMARY KEY,
+ id         INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
  product_id INT NOT NULL ,
  user_id    INT NOT NULL ,
  date       DATETIME NOT NULL ,
